@@ -1,0 +1,25 @@
+<form class="form-horizontal">
+    <input type="text" ng-change="search()" ng-model="filter"/>
+    <button class="btn" ng-click="add()"><i class="icon-plus"></i> Add</button>
+</form>
+<table class="table table-striped">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Published</th>
+        <th>Description</th>
+        <th>ISBN</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="book in books | orderBy:'title'">
+        <td>{{book.title}}</td>
+        <td nowrap="nowrap">{{book.author}}</td>
+        <td>{{book.published}}</td>
+        <td>{{book.description}}</td>
+        <td nowrap="nowrap"><a href="http://www.librarything.com/isbn/{{book.isbn}}">{{book.isbn}}</a></td>
+        <td nowrap="nowrap">
+            <a href="#edit/{{book.id}}"><i class="icon-edit"></i></a>&nbsp;
+            <a href="#"><i class="icon-remove"></i></a>
+        </td>
+    </tr>
+</table>
